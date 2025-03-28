@@ -1,0 +1,1 @@
+# Necessario per trattare la directory/folder corrente come un modulo Python.

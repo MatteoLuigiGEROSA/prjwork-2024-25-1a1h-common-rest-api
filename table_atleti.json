@@ -1,0 +1,230 @@
+[
+    {
+        "id": "456",
+        "nome": "Gin-Hu Chen",
+        "esercizi":
+        [
+            {
+                "id": "001",
+                "descrizione": "Braccio",
+                "difficolta": "Facile",
+                "esito": "55"
+            },
+            {
+                "id": "003",
+                "descrizione": "Gambe",
+                "difficolta": "Medio",
+                "esito": "67"
+            },
+            {
+                "id": "004",
+                "descrizione": "Random",
+                "difficolta": "Difficile",
+                "esito": "25"
+            }
+        ]
+    },
+    {
+        "id": "120",
+        "nome": "Chon-hyun-ju",
+        "esercizi":
+        [
+            {
+                "id": "001",
+                "descrizione": "Braccio",
+                "difficolta": "Facile",
+                "esito": "95"
+            },
+            {
+                "id": "003",
+                "descrizione": "Gambe",
+                "difficolta": "Medio",
+                "esito": "23"
+            },
+            {
+                "id": "004",
+                "descrizione": "Random",
+                "difficolta": "Difficile",
+                "esito": "10"
+
+            }
+        ]
+    },
+    {
+        "id": "001",
+        "nome": "Young-li",
+        "esercizi":
+        [
+            {
+                "id": "001",
+                "descrizione": "Braccio",
+                "difficolta": "Facile",
+                "esito": "15"
+            },
+            {
+                "id": "003",
+                "descrizione": "Gambe",
+                "difficolta": "Medio",
+                "esito": "56"
+            },
+            {
+                "id": "004",
+                "descrizione": "Random",
+                "difficolta": "Difficile",
+                "esito": "88"
+            }
+        ]
+    },
+    {
+        "id": "111",
+        "nome": "Noufal-Abdrebbi",
+        "esercizi":
+        [
+            {
+                "id": "001",
+                "descrizione": "Braccio",
+                "difficolta": "Facile",
+                "esito": "95"
+            },
+            {
+                "id": "003",
+                "descrizione": "Gambe",
+                "difficolta": "Medio",
+                "esito": "55"
+            },
+            {
+                "id": "004",
+                "descrizione": "Random",
+                "difficolta": "Difficile",
+                "esito": "38"
+            }
+        ]
+    },
+    {
+        "id": "222",
+        "nome": "Daniel-LaGanga",
+        "esercizi":
+        [
+            {
+                "id": "001",
+                "descrizione": "Braccio",
+                "difficolta": "Facile",
+                "esito": "67"
+            },
+            {
+                "id": "003",
+                "descrizione": "Gambe",
+                "difficolta": "Medio",
+                "esito": "46"
+            },
+            {
+                "id": "004",
+                "descrizione": "Random",
+                "difficolta": "Difficile",
+                "esito": "12"
+            }
+        ]
+    },
+    {
+        "id": "333",
+        "nome": "Maksym-Hlushko",
+        "esercizi":
+        [
+            {
+                "id": "001",
+                "descrizione": "Braccio",
+                "difficolta": "Facile",
+                "esito": "85"
+            },
+            {
+                "id": "003",
+                "descrizione": "Gambe",
+                "difficolta": "Medio",
+                "esito": "87"
+            },
+            {
+                "id": "004",
+                "descrizione": "Random",
+                "difficolta": "Difficile",
+                "esito": "73"
+            }
+        ]
+    },
+    {
+        "id": "333",
+        "nome": "Eros-Milanesi",
+        "esercizi":
+        [
+            {
+                "id": "001",
+                "descrizione": "Braccio",
+                "difficolta": "Facile",
+                "esito": "100"
+            },
+            {
+                "id": "003",
+                "descrizione": "Gambe",
+                "difficolta": "Medio",
+                "esito": "45"
+            },
+            {
+                "id": "004",
+                "descrizione": "Random",
+                "difficolta": "Difficile",
+                "esito": "65"
+            }
+        ]
+    },
+    {
+        "id": "444",
+        "nome": "Safder-Hussain",
+        "esercizi":
+        [
+            {
+                "id": "001",
+                "descrizione": "Braccio",
+                "difficolta": "Facile",
+                "esito": "88"
+            },
+            {
+                "id": "003",
+                "descrizione": "Gambe",
+                "difficolta": "Medio",
+                "esito": "88"
+            },
+            {
+                "id": "004",
+                "descrizione": "Random",
+                "difficolta": "Difficile",
+                "esito": "5"
+            }
+        ]
+    },
+    {
+        "id": "222",
+        "nome": "Momo-ElMellalou JR",
+        "esercizi":
+        [
+            {
+                "id": "001",
+                "descrizione": "Braccio",
+                "difficolta": "Facile",
+                "esito": "30"
+            },
+            {
+                "id": "003",
+                "descrizione": "Gambe",
+                "difficolta": "Medio",
+                "esito": "78"
+            },
+            {
+                "id": "004",
+                "descrizione": "Random",
+                "difficolta": "Difficile",
+                "esito": "35"
+            }
+        ]
+    }
+
+
+]
