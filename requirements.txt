@@ -1,0 +1,3 @@
+# requirements.txt
+# Dipendenze backend (da aggiornare)
+Flask>=2.3.0
