@@ -3,7 +3,9 @@ from flask_restful import Resource
 import inspect
 
 from app.routes.mra.view_models.tipologia_esercizi_svolti_view_model import TipologiaEserciziSvoltiViewModel
+from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
 
+@log_restful_class_on_any_method_call(log_restful_method_call)
 class TipologiaEserciziSvolti(Resource):
     """
     Restituisce i metadati di una singola tipologia di esercizio svolto

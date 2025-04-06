@@ -9,6 +9,7 @@ from flask_swagger_ui import get_swaggerui_blueprint
 from flasgger import Swagger
 
 from utils.config import config, env
+from utils.tracing.logger_utils import get_logger
 
 from utils.firebase.firebase_initializer import FirebaseInitializer
 
@@ -35,14 +36,27 @@ from app.routes.pal.bulk_import_export_1h import BulkImportExport1H
 
 # -----------------------------------------------------------------------------
 
+# Inizializzazione logger flusso princilale Flask web-application (app_controller):
+logger_name = "main_webapp_controller"
+config_logger_level = config[env].APP_CONTROLLER_LOGGER_LOG_LEVEL
+config_logger_mode = config[env].APP_CONTROLLER_LOGGER_LOG_CHANNELS
+
+logger = get_logger(name=logger_name, level=config_logger_level, mode=config_logger_mode)
+
+# -----------------------------------------------------------------------------
+
+logger.info("$$$ START APPLICATION")
+
 app = Flask(__name__)
 
 swagger = Swagger(app)
 
 # -----------------------------------------------------------------------------
 
-# Debug - stampa tutta la confgurazione:
-print(config[env])
+# # Debug - stampa i parametri attuali della configurazione:
+# print("-----  Configurazione attuale della web-application:  ----- -----")
+# print(vars(config[env]))
+# print("----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ----- ")
 
 # -----------------------------------------------------------------------------
 
@@ -50,38 +64,6 @@ print(config[env])
 firebase = FirebaseInitializer(config[env])
 firebase.initialize_all()
 app.config['firebase'] = firebase
-
-# Recupero credenziali ed endpoint-url per database principale 1A (main database) Firebase:
-# main_database_1a_url = config[env].MAIN_DATABASE_1A_URL
-# main_database_1a_credentials_json_file = config[env].MAIN_DATABASE_1A_CREDENTIALS
-
-# Recupero credenziali ed endpoint-url per database principale 1H (main database) Firebase:
-# main_database_1h_url = config[env].MAIN_DATABASE_1H_URL
-# main_database_1h_credentials_json_file = config[env].MAIN_DATABASE_1H_CREDENTIALS
-
-# Inizializzazione database principale 1A (main database) Firebase:
-# main_db_1a_creds = credentials.Certificate(main_database_1a_credentials_json_file)
-# firebase_admin.initialize_app(main_db_1a_creds, {'databaseURL': main_database_1a_url})
-
-# Inizializzazione database principale 1H (main database) Firebase:
-# main_db_1h_creds = credentials.Certificate(main_database_1h_credentials_json_file)
-# firebase_admin.initialize_app(main_db_1h_creds, {'databaseURL': main_database_1h_url})
-
-
-# Inizializza l'applicazione Firebase per db_app_1a
-# firebase_1a = FirebaseManager.get_instance(
-#     app_name='db_app_1a',
-#     credentials_path=main_database_1a_credentials_json_file,
-#     database_url=main_database_1a_url
-# )
-
-# Inizializza l'applicazione Firebase per db_app_1h
-# firebase_1h = FirebaseManager.get_instance(
-#     app_name='db_app_1h',
-#     credentials_path=main_database_1h_credentials_json_file,
-#     database_url=main_database_1h_url
-# )
-
 
 # -----------------------------------------------------------------------------
 

@@ -2,7 +2,9 @@ from flask import request, make_response, current_app
 from flask_restful import Resource
 
 from app.routes.mra.view_models.tipologia_esercizio_view_model import TipologiaEsercizioViewModel
+from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
 
+@log_restful_class_on_any_method_call(log_restful_method_call)
 class TipologiaEsercizio(Resource):
     """
     Gestisce l'accesso ai dettagli di una singola tipologia di esercizio

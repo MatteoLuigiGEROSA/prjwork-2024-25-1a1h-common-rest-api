@@ -3,7 +3,9 @@ from flask_restful import Resource
 from urllib.parse import unquote
 
 from app.routes.mra.view_models.rilevazione_view_model import RilevazioneViewModel
+from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
 
+@log_restful_class_on_any_method_call(log_restful_method_call)
 class Rilevazioni(Resource):
     """
     Gestisce la lettura (GET) della lista di rilevazioni per una sessione specifica.

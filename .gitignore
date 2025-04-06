@@ -4,6 +4,9 @@
 ### Ignore /creds credentials directory ###
 /creds/
 
+### Ignore /logs run-time logging output files directory ###
+/logs/
+
 ### CircuitPython ###
 .Trashes
 .metadata_never_index

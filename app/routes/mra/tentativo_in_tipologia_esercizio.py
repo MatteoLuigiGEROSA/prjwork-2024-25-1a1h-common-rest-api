@@ -3,7 +3,9 @@ from flask_restful import Resource
 from urllib.parse import unquote
 
 from app.routes.mra.view_models.singolo_tentativo_in_tipologia_esercizio_view_model import SingoloTentativoInTipologiaEsercizioViewModel
+from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
 
+@log_restful_class_on_any_method_call(log_restful_method_call)
 class TentativoInTipologiaEsercizio(Resource):
     """
     Gestisce l'accesso ai dettagli di un singolo tentativo all'interno di una tipologia di esercizio del catalogo

@@ -4,7 +4,9 @@ import inspect
 import urllib.parse
 
 from app.routes.mra.view_models.sessione_view_model import SessioneViewModel
+from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
 
+@log_restful_class_on_any_method_call(log_restful_method_call)
 class Sessione(Resource):
     """
     Restituisce i dettagli di una singola sessione di esercizio svolto da un atleta.
