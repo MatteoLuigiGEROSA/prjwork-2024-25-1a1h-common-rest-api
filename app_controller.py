@@ -16,6 +16,7 @@ from utils.firebase.firebase_initializer import FirebaseInitializer
 # -----------------------------------------------------------------------------
 
 from app.routes.mra.bulk_import_export_1a import BulkImportExport1A
+
 from app.routes.mra.atleti import Atleti
 from app.routes.mra.atleta import Atleta
 from app.routes.mra.tipologie_esercizi_svolti import TipologieEserciziSvolti
@@ -33,6 +34,10 @@ from app.routes.mra.tentativo_in_tipologia_esercizio import TentativoInTipologia
 # -----------------------------------------------------------------------------
 
 from app.routes.pal.bulk_import_export_1h import BulkImportExport1H
+
+from app.routes.pal.stato_attuale_passaggio import StatoAttualePassaggio
+from app.routes.pal.treni import Treni
+from app.routes.pal.treno import Treno
 
 # -----------------------------------------------------------------------------
 
@@ -80,13 +85,17 @@ app.register_blueprint(swagger_ui_blueprint, url_prefix=SWAGGER_DOC_ENDPOINT)
 # Creazione dell'API Flask-RESTful
 api = Api(app)
 
+# -----------------------------------------------------------------------------
+
 mra_base_url = "/api/mra/v1.0.0"
 pal_base_url = "/api/pal/v1.0.0"
+
+# -----------------------------------------------------------------------------
 
 # Aggiunta API di bulk IMPORT/EXPORT per l'intero database 1A:
 api.add_resource(BulkImportExport1A, f"{mra_base_url}/")
 
-# Aggiunta di tutte le API previste per questa REST-API web-application, verso il database 1A:
+# Aggiunta di tutte le API previste per REST-API "MRA" web-application, verso il database 1A:
 
 api.add_resource(Atleti,                  f"{mra_base_url}/atleti")
 api.add_resource(Atleta,                  f"{mra_base_url}/atleti/<int:id_atleta>")
@@ -102,31 +111,34 @@ api.add_resource(TipologiaEsercizio,            f"{mra_base_url}/catalogo-tipolo
 api.add_resource(TentativiInTipologiaEsercizio, f"{mra_base_url}/catalogo-tipologie-esercizi/<id_tipologia>/tentativi")
 api.add_resource(TentativoInTipologiaEsercizio, f"{mra_base_url}/catalogo-tipologie-esercizi/<id_tipologia>/tentativi/<int:id_tentativo>")
 
+# -----------------------------------------------------------------------------
+
 # Aggiunta API di bulk IMPORT/EXPORT per l'intero database 1H:
 api.add_resource(BulkImportExport1H, f"{pal_base_url}/")
 
-# CatalogoTipologieEsercizi
-# GET     /catalogo-tipologie-esercizi
-# POST    /catalogo-tipologie-esercizi
+# Aggiunta di tutte le API previste per REST-API "PAL" web-application, verso il database 1B:
 
-# TipologiaEsercizio
-# GET     /catalogo-tipologie-esercizi/<id_tipologia>
-# PUT     /catalogo-tipologie-esercizi/<id_tipologia>
-# PATCH   /catalogo-tipologie-esercizi/<id_tipologia>
-# DELETE  /catalogo-tipologie-esercizi/<id_tipologia>
+api.add_resource(StatoAttualePassaggio,  f"{pal_base_url}/stato-attuale-passaggio")
+api.add_resource(Treni,                  f"{pal_base_url}/storico-treni")
+api.add_resource(Treno,                  f"{pal_base_url}/storico-treni/<path:id_treno_encoded>")
 
-# TentativiInTipologiaEsercizio
-# GET     /catalogo-tipologie-esercizi/<id_tipologia>/tentativi
-# POST    /catalogo-tipologie-esercizi/<id_tipologia>/tentativi
+##### Passaggio a Livello - PAL ####################
 
-# TentativoInTipologiaEsercizio
-# GET     /catalogo-tipologie-esercizi/<id_tipologia>/tentativi/<int:id_tentativo>
-# PUT     /catalogo-tipologie-esercizi/<id_tipologia>/tentativi/<int:id_tentativo>
-# PATCH   /catalogo-tipologie-esercizi/<id_tipologia>/tentativi/<int:id_tentativo>
-# DELETE  /catalogo-tipologie-esercizi/<id_tipologia>/tentativi/<int:id_tentativo>
+# StatoAttualePassaggio
+# GET     /stato-attuale-passaggio
+#         ->  "orario-rilevazione"     (timestamp attuale)
+#         ->  "attesa-accumulata-sec"  (simulazione tempo di attesa a sbarra chiusa)
+#         ->  "transito"               (aperto/agibile = 0, chiuso/interrotto = 1, in-riapertura = 2, in-chiusura = 3)
 
-# TentativoInTipologiaEsercizioViewModel  tentativo_in_tipologia_esercizio_view_model.py
-# TipologiaEsercizioViewModel             tipologia_esercizio_view_model.py
+# Treni
+# GET     /storico-treni
+
+# Treno
+# GET     /storico-treni/<path:id_treno_encoded>
+#         ->  "velocita-rilevata_kmh"  (simulazione velocità trenp rilevata al passaggio)
+#         ->  "tratta"                 (simulazione provenienza-destinazione)
+#         ->  "tipologia"              (regionale, intercity, rapido, altavelocita)
+
 
 # -----------------------------------------------------------------------------
 # --- Definizione Frontend web-site Endpoint(s)
