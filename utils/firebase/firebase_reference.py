@@ -1,5 +1,5 @@
 from firebase_admin import db
-from utils.tracing.firebase_decorators import log_firebase_operation
+from utils.tracing.firebase_logger_decorator import log_firebase_operation
 
 class ReferenceWrapper:
     def __init__(self, path: str, app):

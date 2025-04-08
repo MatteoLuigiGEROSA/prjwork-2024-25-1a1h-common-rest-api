@@ -4,7 +4,9 @@ import inspect
 import urllib.parse
 
 from app.routes.mra.view_models.sessione_view_model import SessioneViewModel
-from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
+from utils.tracing.restful_logger_decorator import log_restful_class_on_any_method_call, log_restful_method_call
+
+# -----------------------------------------------------------------------------
 
 @log_restful_class_on_any_method_call(log_restful_method_call)
 class Sessione(Resource):
@@ -18,7 +20,7 @@ class Sessione(Resource):
         Ottiene i dettagli di una singola sessione
         ---
         tags:
-          - Sessioni
+          - MRA - Sessioni
         summary: Dettagli di una sessione
         parameters:
           - name: id_atleta

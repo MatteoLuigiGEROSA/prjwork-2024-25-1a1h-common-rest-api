@@ -3,7 +3,7 @@ import firebase_admin
 from firebase_admin import credentials
 from utils.config import config, env
 from utils.firebase.firebase_reference import ReferenceWrapper
-from utils.tracing.firebase_decorators import log_firebase_operation
+from utils.tracing.firebase_logger_decorator import log_firebase_operation
 from utils.tracing.logger_utils import get_logger
 
 class FirebaseManager:

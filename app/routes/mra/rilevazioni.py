@@ -3,7 +3,9 @@ from flask_restful import Resource
 from urllib.parse import unquote
 
 from app.routes.mra.view_models.rilevazione_view_model import RilevazioneViewModel
-from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
+from utils.tracing.restful_logger_decorator import log_restful_class_on_any_method_call, log_restful_method_call
+
+# -----------------------------------------------------------------------------
 
 @log_restful_class_on_any_method_call(log_restful_method_call)
 class Rilevazioni(Resource):
@@ -17,7 +19,7 @@ class Rilevazioni(Resource):
         Ottiene tutte le rilevazioni effettuate in una sessione
         ---
         tags:
-          - Rilevazioni
+          - MRA - Rilevazioni
         summary: Recupera la lista di tutte le rilevazioni per una sessione
         parameters:
           - name: id_atleta

@@ -3,7 +3,7 @@ from flask_restful import Resource
 
 from firebase_admin import db
 from app.routes.mra.view_models.atleta_view_model import AtletaViewModel
-from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
+from utils.tracing.restful_logger_decorator import log_restful_class_on_any_method_call, log_restful_method_call
 
 # -----------------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ class Atleta(Resource):
         Ottiene i dettagli di un atleta specifico per ID
         ---
         tags:
-          - Atleti
+          - MRA - Atleti
         summary: Ottiene i dettagli di un atleta
         parameters:
           - name: id_atleta
@@ -89,7 +89,7 @@ class Atleta(Resource):
         Sostituisce completamente i dati di un atleta esistente
         ---
         tags:
-          - Atleti
+          - MRA - Atleti
         summary: Aggiorna completamente un atleta
         description: >
           Questo metodo implementa un "safe PUT":
@@ -186,7 +186,7 @@ class Atleta(Resource):
         Aggiorna parzialmente i dati di un atleta esistente
         ---
         tags:
-          - Atleti
+          - MRA - Atleti
         summary: Aggiorna uno o più campi dell'atleta
         parameters:
           - name: id_atleta
@@ -276,7 +276,7 @@ class Atleta(Resource):
         Elimina un atleta dal sistema
         ---
         tags:
-          - Atleti
+          - MRA - Atleti
         summary: Elimina un atleta
         parameters:
           - name: id_atleta

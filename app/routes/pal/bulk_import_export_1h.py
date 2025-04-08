@@ -4,7 +4,7 @@ from flask_restful import Api, Resource
 import inspect
 
 from utils.config import config, env
-from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
+from utils.tracing.restful_logger_decorator import log_restful_class_on_any_method_call, log_restful_method_call
 
 # -----------------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ class BulkImportExport1H(Resource):
         Ritorna (esporta) tutto l'intero database in bulk-downloading da root '/'
         ---
         tags:
-          - Bulk Database IMPORT / EXPORT
+          - PAL - Bulk Database IMPORT / EXPORT
         summary: Ottiene (esporta) in bulk-downloading il documento JSON per tutto l'intero database, rilevando tutti i livelli di profondità presenti.
         description: >
           Ritorna (esporta) in bulk-downloading il documento JSON per tutto l'intero database, rilevandone tutti i livelli di profondità presenti.
@@ -82,7 +82,7 @@ class BulkImportExport1H(Resource):
         Inserisce (importa) un intero database in bulk-loading, conservando invariato il formato dei dati in ingresso
         ---
         tags:
-          - Bulk Database IMPORT / EXPORT
+          - PAL - Bulk Database IMPORT / EXPORT
         summary: >
           Inserisce (importa) in bulk-downloading il documento JSON per un intero database, considerando tutti i >
           livelli di profondità presenti e conservando invariato il formato dei dati in ingresso.
@@ -155,7 +155,7 @@ class BulkImportExport1H(Resource):
         WARNING: elimina (drop) un intero database in bulk-loading partendo da '/' root
         ---
         tags:
-          - Bulk Database IMPORT / EXPORT
+          - PAL - Bulk Database IMPORT / EXPORT
         summary: Elimina (drop) un intero database in bulk-loading partendo da '/' root
         responses:
           204:

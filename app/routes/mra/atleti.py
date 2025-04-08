@@ -4,7 +4,7 @@ from flask_restful import Api, Resource
 import inspect
 
 from utils.config import config, env
-from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
+from utils.tracing.restful_logger_decorator import log_restful_class_on_any_method_call, log_restful_method_call
 
 from app.routes.mra.view_models.atleta_view_model import AtletaViewModel
 
@@ -21,7 +21,7 @@ class Atleti(Resource):
         Ritorna la lista completa di tutti gli Atleti
         ---
         tags:
-          - Atleti
+          - MRA - Atleti
         summary: Ottiene la lista di tutti gli atleti
         description: >
           Ritorna la lista di tutti gli atleti registrati nel sistema, con metadati principali e link HATEOAS per ogni atleta.
@@ -112,7 +112,7 @@ class Atleti(Resource):
         Crea un nuovo atleta
         ---
         tags:
-          - Atleti
+          - MRA - Atleti
         summary: Crea un nuovo atleta
         description: >
           Inserisce un nuovo atleta nel sistema. L'ID deve essere fornito nel payload.

@@ -3,7 +3,9 @@ from flask_restful import Resource
 import inspect
 
 from app.routes.mra.view_models.sessione_view_model import SessioneViewModel
-from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
+from utils.tracing.restful_logger_decorator import log_restful_class_on_any_method_call, log_restful_method_call
+
+# -----------------------------------------------------------------------------
 
 @log_restful_class_on_any_method_call(log_restful_method_call)
 class Sessioni(Resource):
@@ -17,7 +19,7 @@ class Sessioni(Resource):
         Ottiene l'elenco delle sessioni di una tipologia di esercizio svolto
         ---
         tags:
-          - Sessioni
+          - MRA - Sessioni
         summary: Elenco sessioni svolte in una tipologia di esercizio
         parameters:
           - name: id_atleta

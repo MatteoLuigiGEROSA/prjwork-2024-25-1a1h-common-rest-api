@@ -2,7 +2,9 @@ from flask import request, current_app
 from flask_restful import Resource
 
 from app.routes.mra.view_models.tentativo_in_tipologia_esercizio_view_model import TentativoInTipologiaEsercizioViewModel
-from utils.tracing.restful_logger import log_restful_class_on_any_method_call, log_restful_method_call
+from utils.tracing.restful_logger_decorator import log_restful_class_on_any_method_call, log_restful_method_call
+
+# -----------------------------------------------------------------------------
 
 @log_restful_class_on_any_method_call(log_restful_method_call)
 class TentativiInTipologiaEsercizio(Resource):
@@ -16,7 +18,7 @@ class TentativiInTipologiaEsercizio(Resource):
         Ottiene la lista completa dei tentativi previsti per una tipologia esercizio
         ---
         tags:
-          - Catalogo Tipologie Esercizi
+          - MRA - Catalogo Tipologie Esercizi
         summary: Ottiene la sequenza completa dei tentativi per una specifica tipologia
         parameters:
           - name: id_tipologia
