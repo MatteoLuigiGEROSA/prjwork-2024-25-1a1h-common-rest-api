@@ -8,7 +8,7 @@ class OrarioTreni:
     def __init__(self):
         self.cardinalita_tipologie = 3
         self.lista_tipologie_treni =  ["REG-Regionale", "IC-Intercity", "RPD-Rapido"]
-        self.cardinalita_tratte = 60
+        self.cardinalita_tratte = 58
         self.lista_tratte = [
             "Milano Rogoredo - Meda [S2]",
             "Milano Porta Vittoria - Meda [S2]",
@@ -80,9 +80,11 @@ class OrarioTreni:
 
     def get_tratta_by_id_treno(self, id_treno: str) -> str:
         indice_tratta = (self.hash_string_to_int(id_treno) % self.cardinalita_tratte)
+        #DEBUG: print(f"indice_tratta: [{indice_tratta}]")
         return self.lista_tratte[indice_tratta]
 
 
     def get_tipologia_by_id_treno(self, id_treno: str) -> str:
         indice_tipologia = (self.hash_string_to_int(id_treno) % self.cardinalita_tipologie)
+        #DEBUG: print(f"indice_tipologia: [{indice_tipologia}]")
         return self.lista_tipologie_treni[indice_tipologia]
